@@ -1,0 +1,19 @@
+{
+  "name": "cs588_u2f-login_yubikey",
+  "version": "1.0.0",
+  "description": "web application login with a security key YubiKey",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "u2f": "^0.1.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
