@@ -6,6 +6,7 @@
 </template>
 
 <script>
+  import axios from "axios";
   export default {
     name: 'U2FComponent',
     methods: {

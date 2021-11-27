@@ -22,3 +22,5 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+- For Caddy you have to go to github, clone the repository of caddy, checkout the version 1.0.3, do cd caddy/caddy, run ```go build``` and copy the caddy binary in the system (I did ```sudo cp caddy /usr/bin```)
