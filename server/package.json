@@ -1,5 +1,5 @@
 {
-  "name": "cs588_u2f-login_yubikey",
+  "name": "cs588_u2f-login_yubikey_server",
   "version": "1.0.0",
   "description": "web application login with a security key YubiKey",
   "main": "app.js",

@@ -51,8 +51,8 @@ app.post('/login', (request, response, next) => {});
 // })
 
 HTTPS.createServer({
-    key: FS.readFileSync("server.key"),
-    cert: FS.readFileSync("server.cert")
+    key: FS.readFileSync("./server.key"),
+    cert: FS.readFileSync("./server.cert")
 }, app).listen(3000, () => {
     console.log('Listening on port 3000...');
 });
