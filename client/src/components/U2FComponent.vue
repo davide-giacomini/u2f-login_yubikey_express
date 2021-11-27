@@ -9,7 +9,21 @@
   export default {
     name: 'U2FComponent',
     methods: {
-      register() {},
+      register() {
+        if (window.u2f && window.u2f.register) { // True if the browser is supported
+          axios({ method: "GET", url: "http://localhost/register", withCredentials: true}).then(result => {
+            window.u2f.register(result.data.appId, [result.data], [], response => {
+              axios({ method: "POST", url: "http://localhost/register", data: { registerResponse: response }, headers: { "content-type": "application/json" }, withCredentials: true }).then(result => {
+                console.log(result.data);
+              }, error => {
+                console.error(error);
+              });
+            });
+          }, error => {
+            console.log(error);
+          });
+        }
+      },
       login() {}
     }
   }
