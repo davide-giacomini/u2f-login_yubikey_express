@@ -1,5 +1,4 @@
-# https://localhost:2015 gives error, it doesn't read it
-:2015 {
+https://localhost:2015 {
 	root dist
 	tls client.cert client.key
 }

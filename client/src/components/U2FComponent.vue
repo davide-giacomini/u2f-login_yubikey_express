@@ -12,9 +12,9 @@
     methods: {
       register() {
         if (window.u2f && window.u2f.register) { // True if the browser is supported
-          axios({ method: "GET", url: "http://localhost/register", withCredentials: true}).then(result => {
+          axios({ method: "GET", url: "https://localhost/register", withCredentials: true}).then(result => {
             window.u2f.register(result.data.appId, [result.data], [], response => {
-              axios({ method: "POST", url: "http://localhost/register", data: { registerResponse: response }, headers: { "content-type": "application/json" }, withCredentials: true }).then(result => {
+              axios({ method: "POST", url: "https://localhost/register", data: { registerResponse: response }, headers: { "content-type": "application/json" }, withCredentials: true }).then(result => {
                 console.log(result.data);
               }, error => {
                 console.error(error);
