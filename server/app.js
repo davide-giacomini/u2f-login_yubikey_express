@@ -17,7 +17,6 @@ app.use(Session({
         max: 60000
     }
 }));
-
 app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: true}));
 app.use(Cors({ origin: [APP_ID], credentials: true}));
@@ -43,8 +42,15 @@ app.post('/register', (request, response, next) => {
     response.send({ message: "Hardware key registered! "});
 });
 
-app.get('/login', (request, response, next) => {});
-app.post('/login', (request, response, next) => {});
+app.get('/login', (request, response, next) => {
+    request.session.u2f = U2F.request(APP_ID, user.keyHandle);
+    response.send(request.session.u2f);
+});
+
+app.post('/login', (request, response, next) => {
+    var success = U2F.checkSignature(request.session.u2f, request.body.loginResponse, user.publicKey);
+    response.send(success);
+});
 
 // HTTPS.createServer({}, app).listen(3000, () => {
 //   console.log('Listening...');
