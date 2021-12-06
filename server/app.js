@@ -29,6 +29,13 @@ app.get('/', (req, res) => {
 
 app.get('/register', (request, response, next) => {
     request.session.u2f = U2F.request(APP_ID);
+    /* THE REQUEST FUNCTION RETURNS AN OBJECT LIKE THIS:
+    request.session.u2f = {
+        version: "U2F_V2",
+        appId: appId,
+        challenge: toWebsafeBase64(crypto.randomBytes(32))
+    };
+    */
     response.send(request.session.u2f);
 });
 
