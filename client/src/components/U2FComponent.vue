@@ -14,8 +14,10 @@
         if (window.u2f && window.u2f.register) { // True if the browser is supported
           axios({ method: "GET", url: "https://localhost/register", withCredentials: true}).then(result => {
 
-            window.u2f.register(result.data.APP_ID, [result.data], [], response => {
+            console.log(result.data);
+            window.u2f.register(result.data.appId, [result.data], [], response => {
 
+              console.log(response);
               axios({ method: "POST", url: "https://localhost/register", data: { registerResponse: response }, 
                       headers: { "content-type": "application/json" }, withCredentials: true }).then(result => {
                         console.log(result.data);
@@ -33,9 +35,11 @@
         if (window.u2f && window.u2f.sign) { // True if the browser is supported
           axios({ method: "GET", url: "https://localhost/login", withCredentials: true}).then(result => {
 
-            window.u2f.sign(result.data.APP_ID, result.data.challenge, [result.data], response => {
+            console.log(result.data);
+            window.u2f.sign(result.data.appId, result.data.challenge, [result.data], response => {
 
-              axios({ method: "POST", url: "https://localhost/login", data: { registerResponse: response }, 
+              console.log(response);
+              axios({ method: "POST", url: "https://localhost/login", data: { loginResponse: response }, 
                       headers: { "content-type": "application/json" }, withCredentials: true }).then(result => {
                         console.log(result.data);
 

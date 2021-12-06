@@ -42,10 +42,13 @@ app.get('/register', (request, response, next) => {
 
 app.post('/register', (request, response, next) => {
     var registration = U2F.checkRegistration(request.session.u2f, request.body.registerResponse);
+
     if (!registration.successful) {
         return response.status(500).send({ message: error });
     }
     user = registration;
+
+    console.log(user);
     response.send({ message: "Hardware key registered! "});
 });
 
