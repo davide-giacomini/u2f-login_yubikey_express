@@ -1,4 +1,4 @@
-\documentclass[10pt, conference]{IEEEtran}
+\documentclass[12pt, conference]{IEEEtran}
 \IEEEoverridecommandlockouts
 % The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
 \usepackage{cite}
@@ -13,6 +13,8 @@
 % Packages added by me
 \usepackage[numbers]{natbib} % Manual of natbib at https://gking.harvard.edu/files/natnotes2.pdf
 \usepackage{lipsum}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
 
 \definecolor{cust-linkcolor}{HTML}{7936ff}
 
@@ -44,21 +46,27 @@ giacomini.davide@outlook.com}
 }
 
 \maketitle
-% \thispagestyle{plain}
-% \pagestyle{plain}
-% \onehalfspacing
+% Those two lines are useful for numbered pages
+\thispagestyle{plain}
+\pagestyle{plain}
+\onehalfspacing
 
 \begin{abstract}
-    In the current state of the pandemic, local clinics have become more important than ever. We will present a glove with an embedded display which can rapidly detect Covid-19 related symptoms by touching the patient.
+    The U2F (Universal 2nd Factor Authentication) protocol allows you to send a cryptographic challenge to a device (typically a key fob) owned by the user. A password starts the process, but the digital key is required to gain access. The FIDO U2F protocol was developed in 2014, and since then, the standards have been honed, refined, and updated. More users are growing accustomed to the idea of cryptographic keys. Some even demand this protection to keep their data safe and secure.
+
+    In this brief report I will analyze the advantages of using a security key, and I will dive into the cryptographic protocol harnessed by those devices. Finally, I will present a sample web application, aimed at showing how current libraries and APIs can be exploited to ease the development of security key authentication in web applications.
 \end{abstract}
 
 \begin{IEEEkeywords}
-    TODO: add keywords in, this, format, for, each, key
+    web applications, authentication, security key, FIDO, U2F, security
 \end{IEEEkeywords}
 
 \input{sections/introduction.tex}
 \input{sections/related-work.tex}
 \input{sections/protocol-overview.tex}
+\input{sections/implementation.tex}
+\input{sections/future.tex}
+\input{sections/conclusion.tex}
 
 \vspace{12pt}
 
